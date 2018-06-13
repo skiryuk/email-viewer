@@ -1,0 +1,11 @@
+
+<div class="main-page">
+  <div class="email-list-container">
+    <app-email-list (selectEmail)="onSelectEmail($event)"></app-email-list>
+  </div>
+  <div class="email-detail-container">
+    <div class="empty-splash" *ngIf="!detailEmail"></div>
+    <app-email-detail [email]="detailEmail" *ngIf="!!detailEmail"></app-email-detail>
+  </div>
+</div>
+

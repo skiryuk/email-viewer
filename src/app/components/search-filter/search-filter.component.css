@@ -1,0 +1,133 @@
+
+:host {
+  user-select: none;
+}
+
+.search-filter-panel {
+  display: flex;
+  min-height: 40px;
+  height: 40px;
+  user-select: none;
+}
+
+.search-panel {
+  display: flex;
+  align-items: center;
+  background: #3f51b5;
+  width: 100%;
+}
+
+.filter-button {
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3f51b5;
+}
+
+.filter-button.opened {
+  background: #485DCF;
+}
+
+.search-field-panel {
+  width: 100%;
+  margin-right: 7px;
+}
+
+.search-field {
+  height: 30px;
+  padding: 0 10px;
+  width: 100%;
+  box-sizing: border-box;
+  background: #3f51b5;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.search-field::placeholder {
+  color: #fff;
+  font-weight: bold;
+}
+
+.search-field::-ms-clear {
+  display: none;
+}
+
+.search-icon {
+  background: url("../../../assets/img/search-icon.png") no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 18px;
+  margin: 0 7px 0 10px;
+  cursor: pointer;
+}
+
+.search-clear-button {
+  background: url("../../../assets/img/clear-icon.png") no-repeat center center;
+  width: 20px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.filter-icon {
+  background: url("../../../assets/img/filter-icon.png") no-repeat center center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.filter-button.filtered .filter-icon {
+  background: url("../../../assets/img/filter-icon-selected.png") no-repeat center center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.filter-controls-panel {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 155px;
+  width: 100%;
+  z-index: 1;
+  background: #485DCF;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.filter-period-row,
+.filter-to-whom-row,
+.filter-from-whom-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.filter-period-label,
+.filter-to-whom-label,
+.filter-from-whom-label {
+  color: #fff;
+  padding: 0 10px;
+  width: 60px;
+}
+
+.filter-period-wrapper {
+}
+
+.filter-period-divider {
+  padding: 0 5px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.filter-buttons-row {
+  display: flex;
+  margin: 10px;
+}
+
+.filter-clear-button {
+  margin-right: 7px;
+}

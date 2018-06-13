@@ -1,0 +1,105 @@
+
+.email-list-panel {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  border-right: 3px solid #ddd;
+  position: relative;
+}
+
+.email-list {
+  width: 100%;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+.email-list-item {
+  padding: 7px 7px 7px 0;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.email-list-item/deep/span.highlighted {
+  background: rgb(255,240,170);
+}
+
+.email-list-item.selected {
+  background: lightsteelblue;
+}
+
+.email-list-empty-splash {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  color: #999;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.solid-right-arrow-icon {
+  margin: 0 7px;
+  font-size: 20px;
+  color: #aaa;
+}
+
+.fromto-section {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-left: 3px solid #ddd;
+  padding-left: 7px;
+}
+
+.to-label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.subject-date-section {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-left: 3px solid #ddd;
+  padding-left: 7px;
+}
+
+.mail-subject {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  padding-right: 7px;
+  height: 20px;
+}
+
+.body-section {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  border-left: 3px solid #ddd;
+  padding-left: 7px;
+  color: #888;
+  padding-top: 2px;
+}
+
+.body-section-text {
+  text-overflow: ellipsis;
+  color: #888;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+}
+
+.mail-date {
+  color: #777;
+}
+
+.email-list-item.selected .fromto-section,
+.email-list-item.selected .subject-date-section,
+.email-list-item.selected .body-section {
+  border-left: 3px solid #3f51b5;
+}

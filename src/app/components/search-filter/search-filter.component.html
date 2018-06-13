@@ -1,0 +1,41 @@
+<div class="search-filter-panel">
+  <div class="search-panel">
+    <div class="search-icon"></div>
+    <div class="search-field-panel">
+      <input class="search-field" [(ngModel)]="searchedValue" type="text" placeholder="Поиск" (keyup)="onSearchValue($event.target.value)">
+    </div>
+    <div class="search-clear-button" *ngIf="searchedValue" (click)="onClearSearch()"></div>
+  </div>
+  <div class="filter-button" [ngClass]="{ 'opened': isOpenedFilterPanel, 'filtered': isFiltered }" (click)="onOpenFilter()" title="Расширенный фильтр">
+    <div class="filter-icon"></div>
+  </div>
+</div>
+
+<div class="filter-controls-panel" [ngStyle]="{ 'display': (isOpenedFilterPanel) ? 'block' : 'none'}">
+  <div class="filter-period-row">
+    <div class="filter-period-label">Период:</div>
+    <div class="filter-period-wrapper">
+      <p-calendar showButtonBar="true" monthNavigator="true" yearNavigator="true" yearRange="2000:2020" [(ngModel)]="startDate" dateFormat="dd.mm.yy" hideOnDateTimeSelect="true" showTime="true" hourFormat="24" [locale]="ru" [inputStyle]="{ 'width' : '125px' }"></p-calendar>
+    </div>
+    <div class="filter-period-divider">-</div>
+    <div class="filter-period-wrapper">
+      <p-calendar showButtonBar="true" monthNavigator="true" yearNavigator="true" yearRange="2000:2020" [(ngModel)]="endDate" dateFormat="dd.mm.yy" hideOnDateTimeSelect="true" showTime="true" hourFormat="24" [locale]="ru" [inputStyle]="{ 'width' : '125px' }"></p-calendar>
+    </div>
+  </div>
+  <div class="filter-from-whom-row">
+    <div class="filter-from-whom-label">От кого:</div>
+    <div class="filter-from-whom-wrapper">
+      <p-dropdown [options]="fromwhoms" [(ngModel)]="selectedFromWhom" [autoDisplayFirst]="false" optionLabel="name" [style]="{'width':'265px'}"></p-dropdown>
+    </div>
+  </div>
+  <div class="filter-to-whom-row">
+    <div class="filter-to-whom-label">Кому:</div>
+    <div class="filter-to-whom-wrapper">
+      <p-dropdown [options]="towhoms" [(ngModel)]="selectedToWhom" [autoDisplayFirst]="false" optionLabel="name" [style]="{'width':'265px'}"></p-dropdown>
+    </div>
+  </div>
+  <div class="filter-buttons-row">
+    <p-button class="filter-clear-button" label="Сбросить" styleClass="ui-button-secondary" (click)="onClearFilter()"></p-button>
+    <p-button label="Фильтровать" styleClass="ui-button-secondary" [disabled]="isDisabledFilterButton()" (click)="onFilterClick()"></p-button>
+  </div>
+</div>

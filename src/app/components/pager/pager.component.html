@@ -1,0 +1,9 @@
+<div class="pager-panel">
+  <div class="start-page">{{getStartPageNumber()}}</div>
+  <div class="divider">-</div>
+  <div class="end-page">{{getEndPageNumber()}}</div>
+  <div class="from-label">из</div>
+  <div class="total">{{totalItems}}</div>
+  <div class="prev-arrow" (click)="onPrev()" [ngClass]="{ 'disabled': getDisabledStatePrev() }"></div>
+  <div class="next-arrow" (click)="onNext()" [ngClass]="{ 'disabled': getDisabledStateNext() }"></div>
+</div>

@@ -1,0 +1,38 @@
+
+<div class="email-detail-panel">
+  <div class="header">
+    <div class="subject">{{ email.subject ? email.subject : 'Без темы' }}</div>
+  </div>
+  <div class="address-section">
+    <div class="email-date">
+      {{ email.date | date:'dd.MM.yyyy hh:m' }}
+    </div>
+    <div class="fromwhom">
+      <div class="fromwhom-title-label">От кого:</div>
+      <div class="fromwhom-email">{{ email.from }}</div>
+    </div>
+    <div class="towhom" *ngIf="email.to && email.to.length > 0">
+      <div class="towhom-title-label">Кому:</div>
+      <div class="towhom-email">{{ email.to.join(', ') }}</div>
+    </div>
+    <div class="towhomcopy" *ngIf="email.cc && email.cc.length > 0">
+      <div class="towhomcopy-title-label">Копия:</div>
+      <div class="towhomcopy-email">{{ email.cc.join(', ') }}</div>
+    </div>
+    <div class="blindcopy" *ngIf="email.bcc && email.bcc.length > 0">
+      <div class="blindcopy-title-label">Скрытая копия:</div>
+      <div class="blindcopy-email">{{ email.bcc.join(', ') }}</div>
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="content-section">
+    <div class="body" innerHTML="{{ getHTMLEmailBody() }}"></div>
+    <div class="show-more-button" *ngIf="isHasLinkEmails()" (click)="onClickShowMoreButton()">
+      <div class="show-more-button-icon" [ngClass]="{ 'opened': isOpenedLinkEmails }"></div>
+      <div class="show-more-button-label">Отобразить переписку</div>
+    </div>
+    <ng-container *ngFor="let linkEmail of getLinkEmails() | slice:1">
+      <div class="link-email" [innerHTML]="getFormattedLinkEmail(linkEmail)" *ngIf="isOpenedLinkEmails"></div>
+    </ng-container>
+  </div>
+</div>

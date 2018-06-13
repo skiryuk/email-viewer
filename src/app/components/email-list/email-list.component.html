@@ -1,0 +1,23 @@
+<div class="email-list-panel">
+  <app-search-filter [startDate]="startDate" [endDate]="endDate" (filterChanged)="onFilterChanged($event)" (searchValueChanged)="onSearchValueChanged($event)" #searchFilter></app-search-filter>
+
+  <div class="email-list">
+    <div class="email-list-empty-splash" *ngIf="isPageChanged && currentEmails.length === 0">По вашему запросу ничего не найдено</div>
+    <div *ngFor="let email of currentEmails" class="email-list-item" (click)="onSelectEmail(email)" [ngClass]="{'selected': selectedEmail && selectedEmail === email}">
+      <div class="fromto-section">
+        <div class="from-label">{{email.from}}</div>
+        <div class="solid-right-arrow-icon">&#8594;</div>
+        <div class="to-label" title="{{ getToAddresses(email) }}">{{ getToAddresses(email) }}</div>
+      </div>
+      <div class="subject-date-section">
+        <div class="mail-subject" innerHTML='{{(email.subject ? email.subject : "&lt;Без темы&gt;") | highlight: searchedValue }}' title='{{email.subject ? email.subject : "&lt;Без темы&gt;"}}'></div>
+        <div class="mail-date">{{ email.date | date:'dd.MM.yyyy hh:m'}}</div>
+      </div>
+      <div class="body-section">
+        <div class="body-section-text" innerHTML='{{ getMessage(email) | highlight: searchedValue}}' title='{{ getMessage(email) }}'></div>
+      </div>
+    </div>
+  </div>
+
+  <app-pager (pageChanged)="onPageChanged($event)" #pager></app-pager>
+</div>
