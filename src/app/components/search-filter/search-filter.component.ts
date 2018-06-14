@@ -31,7 +31,7 @@ export class SearchFilterComponent implements OnInit {
   isFiltered = false;
 
   constructor() {
-    const aa = this.searchUpdated.asObservable()
+    this.searchUpdated.asObservable()
       .debounceTime(500)
       .distinctUntilChanged()
       .subscribe((searchValue) => {
